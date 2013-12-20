@@ -59,6 +59,8 @@ on boot
     insmod /system/lib/modules/bnep.ko
     insmod /system/lib/modules/hci_smd.ko
 
+    chown bluetooth bluetooth /data/misc/bluetooth
+
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
