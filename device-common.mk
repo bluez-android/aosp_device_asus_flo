@@ -28,6 +28,9 @@ endif
 PRODUCT_COPY_FILES := \
 	$(LOCAL_KERNEL):kernel
 
+PRODUCT_COPY_FILES += \
+	$(foreach module, $(wildcard device/asus/flo-kernel/modules/*.ko), $(module):system/lib/modules/$(notdir $(module)))
+
 # This device is xhdpi.  However the platform doesn't
 # currently contain all of the bitmaps at xhdpi density so
 # we do this little trick to fall back to the hdpi version
