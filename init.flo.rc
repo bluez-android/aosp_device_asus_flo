@@ -308,11 +308,15 @@ service hciattach /system/bin/sh /system/etc/init.flo.bt.sh
     disabled
     oneshot
 
-on property:bluetooth.hciattach=true
+on property:init.svc.bluetoothd=running
     start hciattach
 
-on property:bluetooth.hciattach=false
+on property:init.svc.bluetoothd=stopped
+    write /sys/module/hci_smd/parameters/hcismd_set 0
     setprop bluetooth.status off
+
+on property:bluetooth.status=on
+    write /sys/module/hci_smd/parameters/hcismd_set 1
 
 service bridgemgrd /system/bin/bridgemgrd
     class main
