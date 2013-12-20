@@ -51,6 +51,14 @@ on early-boot
     setrlimit 8 67108864 67108864
 
 on boot
+    # load kernel modules
+    insmod /system/lib/modules/compat.ko
+    insmod /system/lib/modules/bluetooth.ko
+    insmod /system/lib/modules/rfcomm.ko
+    insmod /system/lib/modules/hidp.ko
+    insmod /system/lib/modules/bnep.ko
+    insmod /system/lib/modules/hci_smd.ko
+
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
