@@ -15,6 +15,7 @@
 #
 
 import init.flo.usb.rc
+import init.bluetooth.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -58,8 +59,6 @@ on boot
     insmod /system/lib/modules/hidp.ko
     insmod /system/lib/modules/bnep.ko
     insmod /system/lib/modules/hci_smd.ko
-
-    chown bluetooth bluetooth /data/misc/bluetooth
 
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
