@@ -56,7 +56,6 @@ on boot
     insmod /system/lib/modules/compat.ko
     insmod /system/lib/modules/bluetooth.ko
     insmod /system/lib/modules/rfcomm.ko
-    insmod /system/lib/modules/hidp.ko
     insmod /system/lib/modules/bnep.ko
     insmod /system/lib/modules/hci_smd.ko
 
